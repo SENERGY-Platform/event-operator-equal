@@ -4,7 +4,7 @@ ADD pom.xml /usr/src/app
 WORKDIR /usr/src/app
 RUN mvn clean install
 
-FROM openjdk:11-jre-slim
+FROM eclipse-temurin:17-jre
 LABEL org.opencontainers.image.source https://github.com/SENERGY-Platform/event-operator-equal
 ENV NAME event-equal
 COPY --from=builder /usr/src/app/target/${NAME}-jar-with-dependencies.jar /opt/operator.jar
